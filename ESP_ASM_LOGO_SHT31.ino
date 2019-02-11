@@ -1,37 +1,28 @@
 /*
   Example for TFT_eSPI library
-
   Created by Bodmer 31/12/16
-
   This example draws all fonts (as used by the Adafruit_GFX library) onto the
   screen. These fonts are called the GFX Free Fonts (GFXFF) in this library.
-
   The fonts are referenced by a short name, see the Free_Fonts.h file
   attached to this sketch.
-
   Other True Type fonts could be converted using the utility within the
   "fontconvert" folder inside the library. This converted has also been
   copied from the Adafruit_GFX library.
-
   Since these fonts are a recent addition Adafruit do not have a tutorial
   available yet on how to use the fontconvert utility.   Linux users will
   no doubt figure it out!  In the meantime there are 48 font files to use
   in sizes from 9 point to 24 point, and in normal, bold, and italic or
   oblique styles.
-
   This example sketch uses both the print class and drawString() functions
   to plot text to the screen.
-
   Make sure LOAD_GFXFF is defined in the User_Setup.h file within the
   library folder.
-
   --------------------------- NOTE ----------------------------------------
   The free font encoding format does not lend itself easily to plotting
   the background without flicker. For values that changes on screen it is
   better to use Fonts 1- 8 which are encoded specifically for rapid
   drawing with background.
   -------------------------------------------------------------------------
-
   #########################################################################
   ###### DON'T FORGET TO UPDATE THE User_Setup.h FILE IN THE LIBRARY ######
   ######       TO SELECT YOUR DISPLAY TYPE AND ENABLE FONTS          ######
@@ -69,9 +60,9 @@ void setup(void) {
   }
 
   //starfield_init();
-  pong_setup();
+  //pong_setup();
   //  timer.setInterval(2000L, rtc_DS1307_print);
-  timer.setInterval(4000L, SHT31_ASM_logo);
+  timer.setInterval(2000L, SHT31_ASM_logo);
 
   pong_setup();
 
@@ -191,9 +182,6 @@ void SHT31_ASM_logo () {
     // old data
     tft.setTextColor(TFT_BLACK, TFT_BLACK);
 
-    tft.setTextSize(4);
-    //    tft.drawChar(127, 150, 7, 2);
-
     tft.setTextSize(2);
     tft.drawString(old_temp_string, 30, 10, 1);
     tft.drawString(old_humid_string, 30, 55, 1);
@@ -217,20 +205,90 @@ void SHT31_ASM_logo () {
 
   }
 
-
-  // ASM LOGO
   tft.setTextSize(1);
   tft.setTextColor(TFT_WHITE, TFT_BLACK);
   tft.setFreeFont(FF20);                 // Select the font
   tft.drawString("ASM", 30, 120, GFXFF);// Print the string name of the font
   tft.setFreeFont(FF18);
   tft.drawString("PACIFIC TECHNOLOGY", 30, 180, GFXFF);
-  tft.drawLine(247, 48, 292, 74, TFT_RED);
-  tft.drawLine(292, 74, 293, 127, TFT_RED);
-  tft.drawLine(293, 127, 248, 152, TFT_RED);
-  tft.drawLine(248, 152, 202, 127, TFT_RED);
-  tft.drawLine(202, 127, 203, 75, TFT_RED);
-  tft.drawLine(203, 75, 247, 48, TFT_RED);
+
+  tft.setTextColor(TFT_YELLOW, TFT_BLACK);
+  tft.setTextSize(1);
+  tft.drawString("by Victor T.", 100, 210, 1);
+  
+  // ASM LOGO
+
+  // outside top right "\"
+  //tft.drawLine(246, 50, 291, 76, TFT_RED);
+  tft.drawLine(247, 59, 292, 85, TFT_RED);
+  tft.drawLine(248, 58, 293, 84, TFT_RED); // center,
+  tft.drawLine(249, 57, 294, 83, TFT_RED);
+  //tft.drawLine(250, 46, 295, 72, TFT_RED);
+
+  // outside right "|"
+  //tft.drawLine(291, 74, 291, 126, TFT_RED);
+  tft.drawLine(292, 84, 292, 136, TFT_RED);
+  tft.drawLine(293, 84, 293, 136, TFT_RED); // center
+  tft.drawLine(294, 84, 294, 136, TFT_RED);
+  //tft.drawLine(295, 74, 295, 126, TFT_RED);
+
+  // outside bottom right "/"
+  //tft.drawLine(291, 124, 246, 150, TFT_RED);
+  tft.drawLine(292, 135, 247, 161, TFT_RED);
+  tft.drawLine(293, 136, 248, 162, TFT_RED); // center
+  tft.drawLine(294, 137, 249, 163, TFT_RED);
+  //tft.drawLine(295, 128, 250, 154, TFT_RED);
+
+  // outside bottom left "\"
+  //tft.drawLine(246, 154, 201, 128, TFT_RED);
+  tft.drawLine(247, 163, 202, 137, TFT_RED);
+  tft.drawLine(248, 162, 203, 136, TFT_RED); // center
+  tft.drawLine(249, 161, 204, 135, TFT_RED);
+  //tft.drawLine(250, 150, 205, 124, TFT_RED);
+
+  // outside left "|"
+  //tft.drawLine(201, 126, 201, 74, TFT_RED);
+  tft.drawLine(202, 136, 202, 84, TFT_RED);
+  tft.drawLine(203, 136, 203, 84, TFT_RED); // center
+  tft.drawLine(204, 136, 204, 84, TFT_RED);
+  //tft.drawLine(205, 126, 205, 74, TFT_RED);
+
+  // outside top left "/"
+  //tft.drawLine(201, 72, 246, 46, TFT_RED);
+  tft.drawLine(202, 83, 247, 57, TFT_RED);
+  tft.drawLine(203, 84, 248, 58, TFT_RED); // center
+  tft.drawLine(204, 85, 249, 59, TFT_RED);
+  //tft.drawLine(205, 76, 250, 50, TFT_RED);
+
+  tft.drawLine(202, 85, 247, 111, TFT_RED);
+  tft.drawLine(203, 84, 248, 110, TFT_RED); // center
+  tft.drawLine(204, 83, 249, 109, TFT_RED);
+
+  tft.drawLine(292, 83, 247, 109, TFT_RED);
+  tft.drawLine(293, 84, 248, 110, TFT_RED); // center
+  tft.drawLine(294, 85, 249, 111, TFT_RED);
+
+  tft.drawLine(247, 162, 247, 110, TFT_RED);
+  tft.drawLine(248, 162, 248, 110, TFT_RED); // center
+  tft.drawLine(249, 162, 249, 110, TFT_RED);
+
+  // erase the corners
+  tft.fillCircle(248, 58, 7, TFT_BLACK);
+  tft.fillCircle(293, 84, 7, TFT_BLACK);
+  tft.fillCircle(293, 136, 7, TFT_BLACK);
+  tft.fillCircle(248, 162, 7, TFT_BLACK);
+  tft.fillCircle(203, 136, 7, TFT_BLACK);
+  tft.fillCircle(203, 84, 7, TFT_BLACK);
+  tft.fillCircle(248, 110, 7, TFT_BLACK);
+
+  // thin triangles
+  tft.drawLine(248, 58, 293, 136, TFT_RED);
+  tft.drawLine(293, 136, 203, 136, TFT_RED);
+  tft.drawLine(203, 136, 248, 58, TFT_RED);
+  tft.drawLine(248, 58, 248, 110, TFT_RED);
+  tft.drawLine(203, 136, 248, 110, TFT_RED);
+  tft.drawLine(293, 136, 248, 110, TFT_RED);
+
 }
 
 
@@ -302,7 +360,7 @@ void pong_loop() {
   lpaddle();
   rpaddle();
 
-  midline();
+  //midline();
 
   ball();
 }
@@ -316,7 +374,7 @@ void pong_initgame() {
 
   calc_target_y();
 
-  midline();
+  //midline();
 
   //  tft.fillRect(0, h - 26, w, 239, GREY);
   //

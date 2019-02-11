@@ -183,22 +183,22 @@ void SHT31_ASM_logo () {
     tft.setTextColor(TFT_BLACK, TFT_BLACK);
 
     tft.setTextSize(2);
-    tft.drawString(old_temp_string, 30, 10, 1);
-    tft.drawString(old_humid_string, 30, 55, 1);
+    tft.drawString(old_temp_string, 25, 10, 1);
+    tft.drawString(old_humid_string, 25, 55, 1);
 
     // new data
     tft.setTextColor(TFT_GREEN, TFT_BLACK);
 
     tft.setTextSize(4);
-    tft.drawChar(127, 145, 3, 2);
+    tft.drawChar(127, 140, 3, 2);
 
     tft.setTextSize(2);
     temp_string =  String(temp_c, 2);
     humid_string =  String(humid, 2);
-    tft.drawString(temp_string, 30, 10, 1);
-    tft.drawString("C", 170, 10, 1);
-    tft.drawString(humid_string, 30, 55, 1);
-    tft.drawString("%", 150, 55, 1);
+    tft.drawString(temp_string, 25, 10, 1);
+    tft.drawString("C", 163, 10, 1);
+    tft.drawString(humid_string, 25, 55, 1);
+    tft.drawString("%", 145, 55, 1);
 
     old_temp_string = temp_string;
     old_humid_string = humid_string;
@@ -208,9 +208,9 @@ void SHT31_ASM_logo () {
   tft.setTextSize(1);
   tft.setTextColor(TFT_WHITE, TFT_BLACK);
   tft.setFreeFont(FF20);                 // Select the font
-  tft.drawString("ASM", 30, 120, GFXFF);// Print the string name of the font
+  tft.drawString("ASM", 25, 125, GFXFF);// Print the string name of the font
   tft.setFreeFont(FF18);
-  tft.drawString("PACIFIC TECHNOLOGY", 30, 180, GFXFF);
+  tft.drawString("PACIFIC TECHNOLOGY", 25, 180, GFXFF);
 
   tft.setTextColor(TFT_YELLOW, TFT_BLACK);
   tft.setTextSize(1);
@@ -273,13 +273,13 @@ void SHT31_ASM_logo () {
   tft.drawLine(249, 162, 249, 110, TFT_RED);
 
   // erase the corners
-  tft.fillCircle(248, 58, 7, TFT_BLACK);
-  tft.fillCircle(293, 84, 7, TFT_BLACK);
-  tft.fillCircle(293, 136, 7, TFT_BLACK);
-  tft.fillCircle(248, 162, 7, TFT_BLACK);
-  tft.fillCircle(203, 136, 7, TFT_BLACK);
-  tft.fillCircle(203, 84, 7, TFT_BLACK);
-  tft.fillCircle(248, 110, 7, TFT_BLACK);
+  tft.fillCircle(248, 58, 8, TFT_BLACK);
+  tft.fillCircle(293, 84, 8, TFT_BLACK);
+  tft.fillCircle(293, 136, 8, TFT_BLACK);
+  tft.fillCircle(248, 162, 8, TFT_BLACK);
+  tft.fillCircle(203, 136, 8, TFT_BLACK);
+  tft.fillCircle(203, 84, 8, TFT_BLACK);
+  tft.fillCircle(248, 110, 8, TFT_BLACK);
 
   // thin triangles
   tft.drawLine(248, 58, 293, 136, TFT_RED);

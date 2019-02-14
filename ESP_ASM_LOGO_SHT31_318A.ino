@@ -44,6 +44,11 @@ void setup(void) {
   wifiMulti.addAP("SingaporeMilitia_plus", "123Qweasd");
   wifiMulti.addAP("SingaporeMilitia_5GHz", "123Qweasd");
 
+  while (wifiMulti.run() != WL_CONNECTED) {
+    Serial.print(".");
+    delay(200);
+  }
+  
   if (wifiMulti.run() == WL_CONNECTED) {
     Serial.println("");
     Serial.println("WiFi connected");
@@ -211,7 +216,7 @@ void SHT31_ASM_logo () {
     old_humid_string = humid_string;
 
     // datalog to thingspeak
-    thingspeak_datalog++;
+    // thingspeak_datalog++;
     if (thingspeak_datalog == 60)
     {
       // set the fields with the values
